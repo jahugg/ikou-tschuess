@@ -1,0 +1,16 @@
+{
+  "name": "ikou-tschuess",
+  "version": "1.0.0",
+  "description": "shopping window projection installation",
+  "main": "index.html",
+  "repository": "https://github.com/jahugg/ikou-tschuess.git",
+  "author": "Jan Huggenberg",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.1"
+  }
+}
