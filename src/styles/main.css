@@ -1,6 +1,7 @@
 :root {
   --crop-top: 15vh;
   --crop-vertical: 30vw;
+  --blob-size: 20vh;
 }
 
 /*
