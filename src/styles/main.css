@@ -1,3 +1,39 @@
+:root {
+  --crop-top: 15vh;
+  --crop-vertical: 30vw;
+}
+
+/*
+using transforms only should lead to better performance but they
+can't be combined because they use the same property.
+workaround could be wrapping blob into multiple divs
+*/
+/* 
+@keyframes vertical {
+  100% {
+    transform: translateY(calc(100vw - var(--crop-vertical)));
+  }
+}
+
+@keyframes horizontal {
+  100% {
+    transform: translateX(calc(100vw - var(--crop-vertical)));
+  }
+}
+
+@keyframes stretch {
+  100% {
+    transform: scaleX(4);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+*/
+
 @keyframes updown {
   0% {
     top: 110%;
@@ -24,17 +60,17 @@
 
 @keyframes vastag {
   0% {
-    width: 8vh;
+    width: 10vh;
   }
   50% {
     width: 32vh;
   }
   100% {
-    width: 8vh;
+    width: 10vh;
   }
 }
 
-@keyframes forog {
+@keyframes spin {
   100% {
     transform: rotate(360deg);
   }
@@ -51,43 +87,30 @@ body {
   margin: 0;
 }
 
-#lamp {
-  margin: 15vh auto 0 auto;
-  width: 70vw;
-  height: 85vh;
-  /* clip-path: url(#mask); */
+#frame {
+  margin: var(--crop-top) auto 0 auto;
+  width: calc(100vw - var(--crop-vertical));
+  height: calc(100vh - var(--crop-top));
+  clip-path: url(#mask);
 }
 
-#glass {
-  overflow: hidden;
+#filter {
   width: 100%;
   height: 100%;
-  position: relative;
   filter: contrast(20);
-  background:black;
+  background: black;
+  overflow: hidden;
 }
-.bubble {
+
+.blob {
+  position: absolute;
   height: 20vh;
-  width: 20vw;
+  width: 20vh;
   border-radius: 50%;
   background: rgb(184, 126, 50);
-  position: absolute;
   filter: blur(25px);
-  animation: updown linear 37s infinite, leftright ease-in-out 23s infinite, vastag linear 29s infinite, forog linear 31s infinite;
 }
-.bubble:nth-child(2) {
-  animation: updown ease-in 41s infinite, leftright ease-in-out 47s infinite, vastag linear 23s infinite, forog linear 29s infinite;
-}
-.bubble:nth-child(3) {
-  animation: updown ease-out 43s infinite, leftright ease-in-out 53s infinite, vastag linear 29s infinite, forog linear 31s infinite;
-}
-.bubble:nth-child(4) {
-  animation: updown ease-in-out 47s infinite, leftright ease-in-out 59s infinite, vastag linear 31s infinite, forog linear 41s infinite;
-}
-.bubble:nth-child(5) {
+
+.blob:nth-of-type(3n) {
   background: white;
-  animation: updown ease-in-out 29s infinite, leftright ease-in-out 31s infinite, vastag linear 37s infinite, forog linear 47s infinite;
-}
-.bubble:nth-child(6) {
-  animation: updown linear 53s infinite, leftright ease-in-out 29s infinite, vastag linear 19s infinite, forog linear 37s infinite;
 }
