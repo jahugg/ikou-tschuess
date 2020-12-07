@@ -1,0 +1,17 @@
+{
+  "debug_mode": true,
+  "crop_top": "15vh",
+  "crop_vertical": "20vw",
+  "blob_count": 10,
+  "blob_size": "20vh",
+  "base_color": "rgb(184, 126, 50)",
+  "alt_color": "rgb(255, 255, 255)",
+  "mask_size": 200,
+  "mask_positions": [
+    [150, 510],
+    [490, 610],
+    [680, 265],
+    [980, 60],
+    [1140, 510]
+  ]
+}

@@ -1,13 +1,7 @@
-:root {
-  --crop-top: 15vh;
-  --crop-vertical: 30vw;
-  --blob-size: 20vh;
-}
-
 /*
 using transforms only should lead to better performance but they
-can't be combined because they use the same property.
-workaround could be wrapping blob into multiple divs
+can't be combined because they use the same transform property.
+workaround could be wrapping blobs into multiple divs
 */
 /* 
 @keyframes vertical {
@@ -95,6 +89,14 @@ body {
   clip-path: url(#mask);
 }
 
+#frame[data-debug] {
+  clip-path: none;
+}
+
+#frame[data-debug] #filter {
+  background: white;
+}
+
 #filter {
   width: 100%;
   height: 100%;
@@ -105,13 +107,15 @@ body {
 
 .blob {
   position: absolute;
+  top: 50%;
+  left: 50%;
   height: 20vh;
   width: 20vh;
   border-radius: 50%;
-  background: rgb(184, 126, 50);
+  background: var(--base-color);
   filter: blur(25px);
 }
-
+/* every third blob uses alt color */
 .blob:nth-of-type(3n) {
-  background: white;
+  background: var(--alt-color);
 }
