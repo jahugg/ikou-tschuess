@@ -34,6 +34,24 @@ function initApp() {
     frame.setAttribute('data-debug', '');
   }
 
+  // ========
+  // create svg mask with config values
+  let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('width', 0);
+  svg.setAttribute('height', 0);
+  svg.setAttribute('version', '1.1');
+  let clipPathString = `<defs><clipPath id="mask">`;
+
+  for (let pos of config.mask_positions) {
+    let rect = `<rect x="0" y="0" width="${config.mask_size}" height="${config.mask_size}" transform="translate(${pos[0]} ${pos[1]}) rotate(45 0 0)" />`;
+    clipPathString += rect;
+  }
+  clipPathString += `</clipPath></defs>`;
+  svg.innerHTML = clipPathString;
+
+  document.body.prepend(svg);
+
+  // ========
   // create blobs with random animations
   let filter = document.getElementById('filter');
   for (let i = 0; i < config.blob_count - 1; i++) {

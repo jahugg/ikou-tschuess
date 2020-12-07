@@ -89,14 +89,6 @@ body {
   clip-path: url(#mask);
 }
 
-#frame[data-debug] {
-  clip-path: none;
-}
-
-#frame[data-debug] #filter {
-  background: white;
-}
-
 #filter {
   width: 100%;
   height: 100%;
@@ -118,4 +110,12 @@ body {
 /* every third blob uses alt color */
 .blob:nth-of-type(3n) {
   background: var(--alt-color);
+}
+/* debug mode settings */
+#frame[data-debug] {
+  clip-path: none;
+}
+
+#frame[data-debug] #filter {
+  background: white;
 }
