@@ -1,5 +1,5 @@
 {
-  "debug_mode": true,
+  "debug_mode": false,
   "crop_top": "15vh",
   "crop_vertical": "20vw",
   "blob_count": 10,
