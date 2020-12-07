@@ -9,8 +9,10 @@ Shopping Window Pojection Installation for IKOU TSCHUESS
 - animations use random values between 30s and 60s
 - every 3rd blob is colored white
 
-# improvements
+# next improvements
 - using css transform animations only could improve performance but they can not be stacked on the same element
+- use static units for app size
+- add script to dynamically change mask via mouse input
 
 # helpful keyboard controls for setup
 Use **m** to toggle debug mode showing white background and disabling clip-mask
