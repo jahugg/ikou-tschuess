@@ -4,9 +4,8 @@ Shopping Window Pojection Installation for IKOU TSCHUESS
 # notes
 - use config.json to adjust settings
 - blobs are generated via javascript
-- blob animations are still controled via css animations
+- blob animations are still controled via css animations (animation values are random between 30 and 60s)
 - projection cropping is set via config.json
-- animations use random values between 30s and 60s
 - every 3rd blob is colored white
 
 # next improvements
