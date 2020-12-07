@@ -55,13 +55,13 @@ workaround could be wrapping blobs into multiple divs
 
 @keyframes vastag {
   0% {
-    width: 10vh;
+    width: calc(var(--blob-size) * 0.5);
   }
   50% {
-    width: 32vh;
+    width: calc(var(--blob-size) * 2);
   }
   100% {
-    width: 10vh;
+    width: calc(var(--blob-size) * 0.5);
   }
 }
 
@@ -99,10 +99,8 @@ body {
 
 .blob {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 20vh;
-  width: 20vh;
+  height: var(--blob-size);
+  width: var(--blob-size);
   border-radius: 50%;
   background: var(--base-color);
   filter: blur(25px);
