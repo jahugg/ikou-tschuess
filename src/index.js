@@ -8,6 +8,7 @@ rootStyle.setProperty('--crop-vertical', config.crop_vertical);
 rootStyle.setProperty('--blob-size', config.blob_size);
 rootStyle.setProperty('--base-color', config.base_color);
 rootStyle.setProperty('--alt-color', config.alt_color);
+rootStyle.setProperty('--alt-color-2',config.alt_color_2);
 
 // print instructions
 console.info('use m key to toggle debug mode');
@@ -59,10 +60,12 @@ function initApp() {
     blob.classList.add('blob');
     blob.style.animation = `updown ease-in ${getRandomInt(30, 60)}s infinite alternate,
     leftright ease-in-out ${getRandomInt(30, 60)}s infinite,
-    vastag linear ${getRandomInt(30, 60)}s infinite,
-    spin linear ${getRandomInt(30, 60)}s infinite`;
+    vastag linear ${getRandomInt(0, 80)}s infinite`;
+    // spin linear ${getRandomInt(30, 60)}s infinite`;
+    
     filter.appendChild(blob);
   }
+  setInterval(changeBackgroundColor, 3000);
 }
 
 initApp();
@@ -72,4 +75,23 @@ function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
+
+// background color
+
+let colorIndex =0;
+let colorsArray = new Array('black','white','yellow','rgb(0,255,0)','rgb(200,0,155)');
+function changeBackgroundColor(){
+  
+  let filter = document.getElementById('filter');
+  filter.style.background = colorsArray[colorIndex];
+  console.log(colorsArray[colorIndex]);
+  if(colorIndex<colorsArray.length-1){
+    colorIndex++;
+  }
+  else{
+    colorIndex=0;
+  }
+
 }

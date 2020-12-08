@@ -55,13 +55,13 @@ workaround could be wrapping blobs into multiple divs
 
 @keyframes vastag {
   0% {
-    width: calc(var(--blob-size) * 0.5);
+    width: calc(var(--blob-size) * 0.15);
   }
   50% {
-    width: calc(var(--blob-size) * 2);
+    width: calc(var(--blob-size) * 1.5);
   }
   100% {
-    width: calc(var(--blob-size) * 0.5);
+    width: calc(var(--blob-size) * 0.15);
   }
 }
 
@@ -92,9 +92,10 @@ body {
 #filter {
   width: 100%;
   height: 100%;
-  filter: contrast(20);
+  filter: contrast(4);
   background: black;
   overflow: hidden;
+  transition: background 0.5s ease-in-out;
 }
 
 .blob {
@@ -103,11 +104,15 @@ body {
   width: var(--blob-size);
   border-radius: 50%;
   background: var(--base-color);
-  filter: blur(25px);
+  filter: blur(50px);
 }
 /* every third blob uses alt color */
 .blob:nth-of-type(3n) {
   background: var(--alt-color);
+}
+/* every fourth blob uses alt color 2 */
+.blob:nth-of-type(5n) {
+  background: var(--alt-color-2);
 }
 /* debug mode settings */
 #frame[data-debug] {
