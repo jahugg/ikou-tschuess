@@ -95,7 +95,7 @@ body {
   filter: contrast(4);
   background: black;
   overflow: hidden;
-  transition: background 0.5s ease-in-out;
+  transition: background 1.5s ease-in-out;
 }
 
 .blob {
@@ -111,7 +111,7 @@ body {
   background: var(--alt-color);
 }
 /* every fourth blob uses alt color 2 */
-.blob:nth-of-type(5n) {
+.blob:nth-of-type(4n) {
   background: var(--alt-color-2);
 }
 /* debug mode settings */

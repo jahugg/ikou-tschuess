@@ -59,13 +59,13 @@ function initApp() {
     let blob = document.createElement('div');
     blob.classList.add('blob');
     blob.style.animation = `updown ease-in ${getRandomInt(30, 60)}s infinite alternate,
-    leftright ease-in-out ${getRandomInt(30, 60)}s infinite,
-    vastag linear ${getRandomInt(0, 80)}s infinite`;
+    leftright ease-in-out ${getRandomInt(30, 60)}s infinite`;
+    // vastag linear ${getRandomInt(0, 80)}s infinite`;
     // spin linear ${getRandomInt(30, 60)}s infinite`;
     
     filter.appendChild(blob);
   }
-  setInterval(changeBackgroundColor, 3000);
+  setInterval(changeBackgroundColor, 6000);
 }
 
 initApp();

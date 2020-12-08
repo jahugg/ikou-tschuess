@@ -2,10 +2,11 @@
   "debug_mode": false,
   "crop_top": "15vh",
   "crop_vertical": "20vw",
-  "blob_count": 15,
+  "blob_count": 20,
   "blob_size": "30vh",
-  "base_color": "rgb(184, 126, 50)",
+  "base_color": "rgb(255, 0, 0)",
   "alt_color": "rgb(255, 255, 255)",
+  "alt_color_2": "rgb(0,0,255)",
   "mask_size": 200,
   "mask_positions": [
     [150, 510],
