@@ -27,6 +27,9 @@ document.addEventListener('keydown', (e) => {
     let el = document.getElementById('frame');
     el.toggleAttribute('data-debug');
   }
+  if( key === 'f'){
+    openFullScreen();
+  }
 });
 
 function initApp() {
@@ -66,9 +69,11 @@ function initApp() {
     filter.appendChild(blob);
   }
   setInterval(changeBackgroundColor, 6000);
+  let elem = document.documentElement;
+  document.body.addEventListener('click', openFullScreen );
+  // openFullScreen();
 }
-
-initApp();
+window.addEventListener('DOMContentLoaded',initApp);
 
 // helper function
 function getRandomInt(min, max) {
@@ -94,4 +99,19 @@ function changeBackgroundColor(){
     colorIndex=0;
   }
 
+}
+
+// fullscreen
+function clickTest(){
+  console.log('mouse pressed');
+}
+function openFullScreen(){
+  let elem = document.documentElement;
+  if(elem.requestFullScreen){
+    elem.requestFullscreen();
+  }else if(elem.webkitRequestFullscreen){ /* Safari */
+    elem.webkitRequestFullscreen();
+  }else if(elem.msRquestFullscreen){  /* IE11 */
+    elem.msRquestFullscreen();
+  }
 }
