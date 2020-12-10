@@ -11,7 +11,7 @@ Shopping Window Pojection Installation for IKOU TSCHUESS
 # next improvements
 - using css transform animations only could improve performance but they can not be stacked on the same element
 - use static units for app size
-- add script to dynamically change mask via mouse input
+- write script to dynamically change masks via mouse input
 
 # helpful keyboard controls for setup
 Use **m** to toggle debug mode showing white background and disabling clip-mask

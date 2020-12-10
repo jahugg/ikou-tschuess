@@ -8,7 +8,7 @@ rootStyle.setProperty('--crop-vertical', config.crop_vertical);
 rootStyle.setProperty('--blob-size', config.blob_size);
 rootStyle.setProperty('--base-color', config.base_color);
 rootStyle.setProperty('--alt-color', config.alt_color);
-rootStyle.setProperty('--alt-color-2',config.alt_color_2);
+rootStyle.setProperty('--alt-color-2', config.alt_color_2);
 
 // print instructions
 console.info('use m key to toggle debug mode');
@@ -27,7 +27,7 @@ document.addEventListener('keydown', (e) => {
     let el = document.getElementById('frame');
     el.toggleAttribute('data-debug');
   }
-  if( key === 'f'){
+  if (key === 'f') {
     openFullScreen();
   }
 });
@@ -69,15 +69,15 @@ function initApp() {
     leftright ease-in-out ${getRandomInt(30, 60)}s infinite`;
     // vastag linear ${getRandomInt(0, 80)}s infinite`;
     // spin linear ${getRandomInt(30, 60)}s infinite`;
-    
+
     filter.appendChild(blob);
   }
   setInterval(changeBackgroundColor, colorWait);
   let elem = document.documentElement;
-  document.body.addEventListener('click', openFullScreen );
+  document.body.addEventListener('click', openFullScreen);
   // openFullScreen();
 }
-window.addEventListener('DOMContentLoaded',initApp);
+window.addEventListener('DOMContentLoaded', initApp);
 
 // helper function
 function getRandomInt(min, max) {
@@ -85,7 +85,6 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
-
 
 // background color
 
@@ -98,10 +97,10 @@ function changeBackgroundColor(){
   // console.log(colorsArray[colorIndex]);
   if(colorIndex<colorsArray.length-1){
     colorIndex++;
+  } else {
+    colorIndex = 0;
   }
-  else{
-    colorIndex=0;
-  }
+  
   colorWait = Math.random() * 12000
 }
 
@@ -109,13 +108,15 @@ function changeBackgroundColor(){
 function clickTest(){
   // console.log('mouse pressed');
 }
-function openFullScreen(){
+function openFullScreen() {
   let elem = document.documentElement;
-  if(elem.requestFullScreen){
+  if (elem.requestFullScreen) {
     elem.requestFullscreen();
-  }else if(elem.webkitRequestFullscreen){ /* Safari */
+  } else if (elem.webkitRequestFullscreen) {
+    /* Safari */
     elem.webkitRequestFullscreen();
-  }else if(elem.msRquestFullscreen){  /* IE11 */
+  } else if (elem.msRquestFullscreen) {
+    /* IE11 */
     elem.msRquestFullscreen();
   }
   let elem2 = document.getElementById('fullscreen-instruction')
