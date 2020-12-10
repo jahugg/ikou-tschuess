@@ -92,7 +92,7 @@ body {
 #filter {
   width: 100%;
   height: 100%;
-  filter: contrast(2);
+  filter: contrast(5);
   background: black;
   overflow: hidden;
   transition: background 1.45s ease-in-out;
