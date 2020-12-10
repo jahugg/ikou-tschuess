@@ -92,10 +92,10 @@ body {
 #filter {
   width: 100%;
   height: 100%;
-  filter: contrast(4);
+  filter: contrast(2);
   background: black;
   overflow: hidden;
-  transition: background 1.5s ease-in-out;
+  transition: background 1.45s ease-in-out;
 }
 
 .blob {
@@ -121,4 +121,20 @@ body {
 
 #frame[data-debug] #filter {
   background: white;
+}
+
+
+#fullscreen-instruction{
+  position: absolute;
+  background:white;
+  width: 500px;
+  height: 300px;
+  top:50%;
+  left:50%;
+  text-align: center;
+  transform:translate(-50%,-50%);
+  font-size:48px;
+  font-family: Helvetica;
+  color:black;
+  display:none !important;
 }

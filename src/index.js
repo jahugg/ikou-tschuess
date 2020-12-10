@@ -1,6 +1,6 @@
 // import config
 import config from './config.json';
-
+let colorWait = 2000
 // setting css custom propertie values
 let rootStyle = document.body.style;
 rootStyle.setProperty('--crop-top', config.crop_top);
@@ -38,6 +38,10 @@ function initApp() {
     frame.setAttribute('data-debug', '');
   }
 
+  document.addEventListener("fullscreenchange", onFullScreenChange, false);
+  document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
+  document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
+  checkInitOnFullScreen();
   // ========
   // create svg mask with config values
   let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -68,7 +72,7 @@ function initApp() {
     
     filter.appendChild(blob);
   }
-  setInterval(changeBackgroundColor, 6000);
+  setInterval(changeBackgroundColor, colorWait);
   let elem = document.documentElement;
   document.body.addEventListener('click', openFullScreen );
   // openFullScreen();
@@ -86,24 +90,24 @@ function getRandomInt(min, max) {
 // background color
 
 let colorIndex =0;
-let colorsArray = new Array('black','white','yellow','rgb(0,255,0)','rgb(200,0,155)');
+let colorsArray = new Array('rgb(222,49,99)','rgb(129,226,161)','rgb(64, 255, 208)','rgb(100, 149, 237)','rgb(100, 100, 255)','rgb(255, 127, 80)','rgb(0,0,0)');
 function changeBackgroundColor(){
   
   let filter = document.getElementById('filter');
   filter.style.background = colorsArray[colorIndex];
-  console.log(colorsArray[colorIndex]);
+  // console.log(colorsArray[colorIndex]);
   if(colorIndex<colorsArray.length-1){
     colorIndex++;
   }
   else{
     colorIndex=0;
   }
-
+  colorWait = Math.random() * 12000
 }
 
 // fullscreen
 function clickTest(){
-  console.log('mouse pressed');
+  // console.log('mouse pressed');
 }
 function openFullScreen(){
   let elem = document.documentElement;
@@ -113,5 +117,31 @@ function openFullScreen(){
     elem.webkitRequestFullscreen();
   }else if(elem.msRquestFullscreen){  /* IE11 */
     elem.msRquestFullscreen();
+  }
+  let elem2 = document.getElementById('fullscreen-instruction')
+  elem2.style.display = 'none'
+}
+
+function onFullScreenChange(){
+  let fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+  if(fullscreenElement == null){
+    // console.log('exit fullscreen')
+    let elem2 = document.getElementById('fullscreen-instruction')
+    elem2.style.display = 'block'
+  }else{
+    elem2.style.display = 'none'
+  }
+
+
+}
+
+function checkInitOnFullScreen(){
+  let fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+  if(fullscreenElement == null){
+    // console.log('exit fullscreen')
+    let elem2 = document.getElementById('fullscreen-instruction')
+    elem2.style.display = 'block'
+  }else{
+    elem2.style.display = 'none'
   }
 }
